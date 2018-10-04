@@ -9,10 +9,13 @@ defmodule Esplanade do
   
   def call(conn, _opts) do
     tomogram = [
-        "/hello"
+        %{
+            method: "GET",
+            path: "/hello"
+        }
     ]
-    IO.inspect(conn)
-    if Enum.any?(tomogram, fn x -> x == conn.request_path end) do
+    #IO.inspect(conn)
+    if Enum.any?(tomogram, fn x -> x.path == conn.request_path end) do
       conn
       |> put_resp_content_type("text/plain")
       |> send_resp(200, "Hello world")
