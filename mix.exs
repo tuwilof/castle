@@ -22,7 +22,8 @@ defmodule Castle.MixProject do
   def deps do
     [
       {:cowboy, "~> 2.0"},
-      {:plug, "~> 1.0"}
+      {:plug, "~> 1.0"},
+      {:poison, "~> 3.1"}
     ]
   end
 end
