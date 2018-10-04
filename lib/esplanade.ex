@@ -8,8 +8,11 @@ defmodule Esplanade do
     end
   
   def call(conn, _opts) do
+    tomogram = [
+        "/hello"
+    ]
     IO.inspect(conn)
-    if conn.request_path == "/hello" do
+    if Enum.any?(tomogram, fn x -> x == conn.request_path end) do
       conn
       |> put_resp_content_type("text/plain")
       |> send_resp(200, "Hello world")
