@@ -15,5 +15,18 @@ defmodule EsplanadeTest do
       assert conn.state == :sent
       assert conn.status == 200
       assert conn.resp_body == "Hello world"
-  end
+    end
+
+    test "returns error" do
+      # Create a test connection
+      conn = conn(:get, "/hell")
+  
+      # Invoke the plug
+      conn = Esplanade.call(conn, @opts)
+  
+      # Assert the response and status
+      assert conn.state == :sent
+      assert conn.status == 200
+      assert conn.resp_body == "requestNotDocumented"
+    end
 end
