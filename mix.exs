@@ -23,7 +23,8 @@ defmodule Castle.MixProject do
     [
       {:cowboy, "~> 2.0"},
       {:plug, "~> 1.0"},
-      {:poison, "~> 3.1"}
+      {:poison, "~> 3.1"},
+      {:ex_json_schema, "~> 0.5.4"}
     ]
   end
 end
